@@ -8,7 +8,7 @@ var config= {
     host:'db.imad.nasura-app.io',
     port:'5432',
     Password:process.env.DB-PASSSWORD
-}
+};
 
 var pool=new pool(config);
 pool.query('SELECT* FROM test', function(error,result)
