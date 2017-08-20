@@ -12,9 +12,11 @@ var config= {
 
 var pool=new pool(config);
 pool.query('SELECT* FROM test', function(error,result)
-{if (error){res.status(500).send error toString());
+{if (err){res.status(500).send (err.toString());
     {else{res.send(JSON.stringify( result));
-})
+}
+});
+});
 
 var app = express();
 app.use(morgan('combined'));
