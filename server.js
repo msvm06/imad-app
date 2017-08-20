@@ -1,6 +1,20 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var pool=require('pg').pool;
+var config= {
+    user:'msvm06',
+    database: 'msvm06',
+    host:'db.imad.nasura-app.io',
+    port:'5432',
+    Password:process.env.DB-PASSSWORD
+}
+
+var pool=new pool(config);
+pool.query('SELECT* FROM test', function(error,result)
+{if (error){res.status(500).send error toString());
+    {else{res.send(JSON.stringify( result));
+})
 
 var app = express();
 app.use(morgan('combined'));
