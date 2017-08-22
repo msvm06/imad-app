@@ -7,7 +7,7 @@ var config= {
     database: 'msvm06',
     host:'db.imad.nasura-app.io',
     port:'5432',
-    Password:process.env.DB-PASSSWORD
+    Password:process.env.DB_PASSSWORD
 };
 
 var pool=new Pool(config);
