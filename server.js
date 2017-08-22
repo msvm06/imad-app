@@ -10,9 +10,15 @@ var config= {
     Password:process.env.DB-PASSSWORD
 };
 
-var pool=new pool(config);
-pool.query('SELECT* FROM test', function(error,result)
-{if (err){res.status(500).send (err.toString());
+var pool=new Pool(config);
+app.get('/test-db',function(req,res){
+    //make 
+    //return
+    
+pool.query('SELECT* FROM test', function(err,result){
+    if (err)
+    {
+        res.status(500).send (err.toString());
     }else{res.send(JSON.stringify( result));
 }
 });
