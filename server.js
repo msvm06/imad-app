@@ -14,6 +14,11 @@ var config= {
 var app = express();
 app.use(morgan('combined'));
 
+function create Template(data)
+app.get('/', function(req,res){
+    res.sendFile(path.join(_dirname,'ui','index.html'));
+})
+
 var Pool=new Pool(config);
 app.get('/test-db',function(req,res){
     //make 
