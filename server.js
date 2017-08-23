@@ -2,13 +2,17 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var pool=require('pg').pool;
+var crypto= rrequire('crypto');
 var config= {
     user:'msvm06',
     database: 'msvm06',
     host:'db.imad.nasura-app.io',
     port:'5432',
-    Password:process.env.DB_PASSSWORD
+    password:process.env.DB_PASSSWORD
 };
+
+var app = express();
+app.use(morgan('combined'));
 
 var Pool=new Pool(config);
 app.get('/test-db',function(req,res){
@@ -24,8 +28,6 @@ Pool.query('SELECT* FROM test', function(err,result){
 });
 });
 
-var app = express();
-app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -66,3 +68,4 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+
