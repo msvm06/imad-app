@@ -19,6 +19,14 @@ app.get('/', function(req,res){
     res.sendFile(path.join(_dirname,'ui','index.html'));
 })
 
+function hash(input,salt) {
+    //how do we create a hash
+var hashhed=crypto.pbkdf2sync(input,salt,10000,512,'sha512');
+returnhashed.toString('hex');
+
+
+}
+
 var Pool=new Pool(config);
 app.get('/test-db',function(req,res){
     //make 
